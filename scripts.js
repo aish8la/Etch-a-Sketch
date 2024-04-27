@@ -1,10 +1,10 @@
 let debugValue = 'change debugValue to display here';
 
 const sketchBox = document.querySelector('.sketchpad');
-let numberOfGridsPerAxis = 3;
+let numberOfGridsPerAxis = 10;
 let sizeOfSketchBox = sketchBox.clientWidth;
 let totalNumberOfGrids = numberOfGridsPerAxis**2;
-let gridSize = `${sizeOfSketchBox / numberOfGridsPerAxis}px`;
+let gridSize = `${Math.round(sizeOfSketchBox / numberOfGridsPerAxis)}px`;
 
 for (i = 1; i <= totalNumberOfGrids; i++) {
     const grids = document.createElement('div');
@@ -15,8 +15,10 @@ for (i = 1; i <= totalNumberOfGrids; i++) {
 }
 
 
+
+
 //use this variable to display the needed value in the title of the page
-debugValue = gridSize;
+debugValue = extraPixel;
 
 
 

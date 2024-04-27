@@ -5,7 +5,8 @@
 }
 
 body,
-.sketchpad {
+.sketchpad,
+.grids {
     margin: 0px;
     padding: 0px;
 }
@@ -22,12 +23,16 @@ body {
 
 
 .sketchpad {
-    width: 499px;
-    height: 499px;
-    border: 10px ridge black;
+    width: 480px;
+    height: 480px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0px;
 }
 
 .grids {
-    border: 2px solid black;
+    border: 1px solid black;
 }
 
