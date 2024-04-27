@@ -4,24 +4,30 @@
     box-sizing: border-box;
 }
 
+body,
+.sketchpad {
+    margin: 0px;
+    padding: 0px;
+}
+
 body {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
     font-family: Roboto, monospace, sans-serif;
-    margin: 0px;
-    padding: 0px;
     gap: 20px;
 }
 
+
+
 .sketchpad {
-    width: 500px;
-    height: 500px;
+    width: 499px;
+    height: 499px;
     border: 10px ridge black;
 }
 
-,grids {
+.grids {
     border: 2px solid black;
 }
 
