@@ -1,6 +1,3 @@
-//for debugging purposes, remove after
-let debugValue = 'change debugValue to display here';
-
 const sketchBox = document.querySelector('.sketchpad');
 const clearButton = document.querySelector('#clear-btn');
 const colorButton = document.querySelector('#color-btn');
@@ -103,7 +100,3 @@ function gridBtn(gridFn) {
 
 
 
-
-//for debugging purposes, remove after
-const debugTitle = document.querySelector('h1');
-debugTitle.textContent = debugValue
