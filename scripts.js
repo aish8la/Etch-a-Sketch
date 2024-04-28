@@ -11,7 +11,7 @@ let colorFunction = blackBrush;
 let colorChangeButtonText = 'Change to Rainbow Mode';
 
 colorButton.textContent = colorChangeButtonText;
-gridCreate(10);
+gridCreate(16);
 
 function gridCreate(gridQty) {
     numberOfGridsPerAxis = gridQty;
@@ -72,7 +72,7 @@ function clearBtn() {
 }
 
 function gridBtn(gridFn) {
-    let gridNum = Number(prompt('Type the number of grids per axis','10'));
+    let gridNum = Number(prompt('Type the number of grids per axis','16'));
     gridFn(gridNum);
 }
 
