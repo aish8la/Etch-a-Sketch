@@ -6,7 +6,6 @@ let numberOfGridsPerAxis = 10;
 let sizeOfSketchBox = sketchBox.clientWidth;
 let totalNumberOfGrids = numberOfGridsPerAxis**2;
 let gridSize = `${Math.round(sizeOfSketchBox / numberOfGridsPerAxis)}px`;
-let brushMode = 'black';
 let colorFunction = blackBrush;
 
 for (i = 1; i <= totalNumberOfGrids; i++) {
@@ -18,17 +17,22 @@ for (i = 1; i <= totalNumberOfGrids; i++) {
     sketchBox.appendChild(grids);
 }
 
-sketchBox.addEventListener('mouseover', (event, brushFunction)=> {
-    let hoverGrid = event.target.id;
-    brushFunction(hoverGrid);
+sketchBox.addEventListener('mouseover', (event)=> {
+    let hoverGrid = event.target;
+    colorFunction(hoverGrid);
 
 });
 
-function blackBrush(elementId) {
-    console.log(elementId.id);
+function blackBrush(element) {
+    element.style.backgroundColor = "black";
 }
 
-
+function rainbowBrush(element) {
+    red = Math.floor(Math.random()*256);
+    blue = Math.floor(Math.random()*256);
+    green = Math.floor(Math.random()*256);
+    element.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+}
 
 
 
