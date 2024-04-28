@@ -1,3 +1,4 @@
+//for debugging purposes, remove after
 let debugValue = 'change debugValue to display here';
 
 const sketchBox = document.querySelector('.sketchpad');
@@ -6,6 +7,7 @@ let sizeOfSketchBox = sketchBox.clientWidth;
 let totalNumberOfGrids = numberOfGridsPerAxis**2;
 let gridSize = `${Math.round(sizeOfSketchBox / numberOfGridsPerAxis)}px`;
 let brushMode = 'black';
+let colorFunction = blackBrush;
 
 for (i = 1; i <= totalNumberOfGrids; i++) {
     const grids = document.createElement('div');
@@ -16,14 +18,14 @@ for (i = 1; i <= totalNumberOfGrids; i++) {
     sketchBox.appendChild(grids);
 }
 
-sketchBox.addEventListener('mouseover', (event)=> {
-    let hoverGrid = event.target;
-    hoverAction(hoverGrid);
+sketchBox.addEventListener('mouseover', (event, brushFunction)=> {
+    let hoverGrid = event.target.id;
+    brushFunction(hoverGrid);
 
 });
 
-function hoverAction(element) {
-    console.log(element.id);
+function blackBrush(elementId) {
+    console.log(elementId.id);
 }
 
 
