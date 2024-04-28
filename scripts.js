@@ -17,7 +17,7 @@ function gridCreate(gridQty) {
     numberOfGridsPerAxis = gridQty;
     sizeOfSketchBox = sketchBox.clientWidth;
     totalNumberOfGrids = numberOfGridsPerAxis**2;
-    gridSize = `${Math.round(sizeOfSketchBox / numberOfGridsPerAxis)}px`;
+    gridSize = `${sizeOfSketchBox / numberOfGridsPerAxis}px`;
     sketchBox.replaceChildren();
     for (i = 1; i <= totalNumberOfGrids; i++) {
         const grids = document.createElement('div');
