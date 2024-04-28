@@ -6,23 +6,33 @@ const clearButton = document.querySelector('#clear-btn');
 const colorButton = document.querySelector('#color-btn');
 const gridSizeButton = document.querySelector('#grid-btn');
 const buttonsDiv = document.querySelector('.button-container');
-let numberOfGridsPerAxis = 10;
-let sizeOfSketchBox = sketchBox.clientWidth;
-let totalNumberOfGrids = numberOfGridsPerAxis**2;
-let gridSize = `${Math.round(sizeOfSketchBox / numberOfGridsPerAxis)}px`;
+let numberOfGridsPerAxis;
+let sizeOfSketchBox;
+let totalNumberOfGrids;
+let gridSize;
 let colorFunction = blackBrush;
 let colorChangeButtonText = 'Change to Rainbow Mode';
 
 colorButton.textContent = colorChangeButtonText;
+gridCreate(10);
 
-for (i = 1; i <= totalNumberOfGrids; i++) {
-    const grids = document.createElement('div');
-    const idName = `grid-${i}`;
-    grids.classList.add('grids');
-    grids.setAttribute('id', idName);
-    grids.setAttribute('style', `height: ${gridSize}; width: ${gridSize}`)
-    sketchBox.appendChild(grids);
+function gridCreate(gridQty) {
+    numberOfGridsPerAxis = gridQty;
+    sizeOfSketchBox = sketchBox.clientWidth;
+    totalNumberOfGrids = numberOfGridsPerAxis**2;
+    gridSize = `${Math.round(sizeOfSketchBox / numberOfGridsPerAxis)}px`;
+    sketchBox.replaceChildren();
+    for (i = 1; i <= totalNumberOfGrids; i++) {
+        const grids = document.createElement('div');
+        const idName = `grid-${i}`;
+        grids.classList.add('grids');
+        grids.setAttribute('id', idName);
+        grids.setAttribute('style', `height: ${gridSize}; width: ${gridSize}`)
+        sketchBox.appendChild(grids);
+    }
 }
+
+
 
 sketchBox.addEventListener('mouseover', event => {
     let hoverGrid = event.target;
@@ -37,7 +47,7 @@ buttonsDiv.addEventListener('click', event => {
                 clearBtn();
                 break;
             case 'grid-btn':
-                gridBtn();
+                gridBtn(gridCreate);
                 break
             case 'color-btn':
                 colorBtn();
@@ -64,7 +74,10 @@ function clearBtn() {
     } 
 }
 
-
+function gridBtn(gridFn) {
+    let gridNum = Number(prompt('Type the number of grids per axis','10'));
+    gridFn(gridNum);
+}
 
 
 
