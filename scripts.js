@@ -7,10 +7,11 @@ let numberOfGridsPerAxis;
 let sizeOfSketchBox;
 let totalNumberOfGrids;
 let gridSize;
-let colorFunction = blackBrush;
-let colorChangeButtonText = 'Change to Rainbow Mode';
+let currentBrush;
+let colorFunction;
+let colorChangeButtonText;
 
-colorButton.textContent = colorChangeButtonText;
+colorBtn();
 gridCreate(16);
 
 function gridCreate(gridQty) {
@@ -33,6 +34,11 @@ function gridCreate(gridQty) {
 
 sketchBox.addEventListener('mouseover', event => {
     let hoverGrid = event.target;
+    let currentOpacity = window.getComputedStyle(hoverGrid).opacity;
+    let newOpacity = Number(currentOpacity) < 1 ?
+                     (Number(currentOpacity) + 0.10).toFixed(2):
+                     1;
+    hoverGrid.style.opacity = `${newOpacity}`;
     colorFunction(hoverGrid);
 });
 
@@ -54,20 +60,24 @@ buttonsDiv.addEventListener('click', event => {
 });
 
 function blackBrush(element) {
-    element.style.backgroundColor = 'black';
+    hue = 100;
+    saturation = 100;
+    lightness = 0;
+    element.style.backgroundColor = `hsla(${hue}, ${saturation}%, ${lightness}%)`;
 }
 
 function rainbowBrush(element) {
-    red = Math.floor(Math.random()*256);
-    blue = Math.floor(Math.random()*256);
-    green = Math.floor(Math.random()*256);
-    element.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+    hue = Math.floor(Math.random()*360);
+    saturation = 100;
+    lightness = 50;
+    element.style.backgroundColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 }
 
 function clearBtn() {
     const gridElements = document.querySelectorAll('.grids');
     for (const gridElement of gridElements) {
         gridElement.style.backgroundColor = 'white';
+        gridElement.style.opacity = '0'
     } 
 }
 
@@ -76,6 +86,17 @@ function gridBtn(gridFn) {
     gridFn(gridNum);
 }
 
+function colorBtn() {
+    if (currentBrush !== 'blackBrush') {
+        currentBrush = 'blackBrush';
+        colorFunction = blackBrush;
+        colorButton.textContent = 'Change to Rainbow Brush';
+    } else {
+        currentBrush = 'rainbowBrush';
+        colorFunction = rainbowBrush;
+        colorButton.textContent = 'Change to Black Brush';
+    }
+}
 
 
 
