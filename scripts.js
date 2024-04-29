@@ -35,7 +35,7 @@ function gridCreate(gridQty) {
 sketchBox.addEventListener('mouseover', event => {
     let hoverGrid = event.target;
     let currentOpacity = window.getComputedStyle(hoverGrid).opacity;
-    let newOpacity = Number(currentOpacity) < 1 ?
+    let newOpacity = Number(currentOpacity) < 1 ? //ternary operator makes sure that the opacity value do not exceed 1
                      (Number(currentOpacity) + 0.10).toFixed(2):
                      1;
     hoverGrid.style.opacity = `${newOpacity}`;
