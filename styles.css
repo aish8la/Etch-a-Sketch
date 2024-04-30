@@ -13,26 +13,64 @@ body,
 
 body {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-direction: column;
     font-family: Roboto, monospace, sans-serif;
-    gap: 20px;
-    background-color: rgba(78, 79, 80, 0.874);
+    gap: 10px;
+    background-color: #5a7d92;
+    align-items: center;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #222;
+    font-family: 'Helvetica', sans-serif;
+    text-align: center;
 }
 
 .sketch-container {
-    margin-top: 80px;
     display: flex;
     justify-content:space-evenly;
-    align-items: center;
+    align-items:center;
+    background-color: #2a2f36;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.3s;
+    width: fit-content;
+    gap: 100px;
 }
+
+.buttons {
+    padding: 10px 20px;  
+    font-size: 16px;    
+    text-align: center; 
+    cursor: pointer;    
+    color: #4A90E2;     
+    background-color: transparent; 
+    border: 2px solid #4A90E2; 
+    border-radius: 5px;  
+    width: 200px;
+    height: 60px;
+}
+
 
 .button-container {  
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
+    height: 480px;
+    gap: 40px;
+    background-color: transparent; 
+    border: 2px solid #ffffff; 
+    border-radius: 5px; 
+    padding: 40px;
+
 }
+
+
 
 .sketchpad {
     width: 480px;
@@ -48,4 +86,12 @@ body {
 .grids {
     background-color: white;
     opacity: 0;
+}
+
+.main-container {
+    background-color: transparent; 
+    border: 2px solid #ffffff; 
+    border-radius: 5px; 
+    padding: 15px;
+    margin: 15px;
 }
