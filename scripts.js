@@ -53,6 +53,7 @@ buttonsDiv.addEventListener('click', event => {
                 clearBtn();
                 break;
             case 'grid-btn':
+                clearBtn();
                 gridBtn(gridCreate);
                 break
             case 'color-btn':
@@ -85,7 +86,13 @@ function clearBtn() {
 }
 
 function gridBtn(gridFn) {
-    let gridNum = Number(prompt('Type the number of grids per axis','16'));
+    let gridNum = Math.floor(Number(prompt('Type the number of grids per axis (Between 10 and 100)')));
+    if (gridNum > 100 
+        || gridNum < 10 
+        || isNaN(gridNum) ) {
+        alert('Invalid value (Please type a number between 10 and 100');
+        return gridBtn(gridFn);
+    }
     gridFn(gridNum);
 }
 
