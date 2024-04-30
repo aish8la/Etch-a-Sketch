@@ -38,8 +38,11 @@ sketchBox.addEventListener('mouseover', event => {
     let newOpacity = Number(currentOpacity) < 1 ? //ternary operator makes sure that the opacity value do not exceed 1
                      (Number(currentOpacity) + 0.10).toFixed(2):
                      1;
-    hoverGrid.style.opacity = `${newOpacity}`;
-    colorFunction(hoverGrid);
+    if (hoverGrid.classList.contains('grids')) {
+        hoverGrid.style.opacity = `${newOpacity}`;
+        colorFunction(hoverGrid);
+    }
+ 
 });
 
 buttonsDiv.addEventListener('click', event => {
